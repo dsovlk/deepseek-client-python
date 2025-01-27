@@ -34,15 +34,18 @@ export DEEPSEEK_API_KEY="your-api-key-here"
 ## Usage
 
 ```python
- # Example usage for deepseek-client-python
-    client = DeepSeekClient()
-
-    # Example completion
-    response = client.generate(
-        prompt="Explain quantum computing in simple terms",
-        temperature=0.5,
-        max_tokens=500,
+client = DeepSeekClient(
+        api_key=os.getenv("DEEPSEEK_API_KEY"), 
+        base_url="https://api.deepseek.com/v1"
     )
-    print(response["choices"][0]["text"])
 
+response = client.chat(
+            messages=[
+                {"role": "user", "content": "Explain quantum computing in simple terms"}
+            ],
+            model="deepseek-chat",
+            temperature=0.7,
+            max_tokens=100,
+        )
+        print("\nResponse:", response["choices"][0]["message"]["content"])
 ```
