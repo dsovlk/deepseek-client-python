@@ -42,5 +42,10 @@ jobs:
           POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_API_TOKEN }} 
            # Correct environment variable
         run: |
-            echo "POETRY_PYPI_TOKEN_PYPI is set: ${POETRY_PYPI_TOKEN_PYPI:0:4}***"
+            echo "POETRY_PYPI_TOKEN_PYPI is set: ${POETRY_PYPI_TOKEN_PYPI:0:10}***"
+            # Check package metadata
+             poetry check -vvv
+    
+            # Verify package version availability
+            poetry run python -c "import requests; print('Package available' if requests.get('https://pypi.org/pypi/deepseek-client-python/json').status_code == 200 else 'Package does not exist')"
             poetry publish --build -vvv
