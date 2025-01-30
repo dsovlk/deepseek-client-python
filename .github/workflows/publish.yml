@@ -21,7 +21,9 @@ jobs:
           python-version: "3.10"  # Or use "3.x" to allow for minor version updates
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: | 
+          pip install -r requirements.txt
+          pip install pytest
 
       - name: Set PYTHONPATH for tests
         run: |
