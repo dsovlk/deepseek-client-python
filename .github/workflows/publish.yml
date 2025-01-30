@@ -40,12 +40,15 @@ jobs:
         
         run: |
             # Check package metadata
-             poetry check -vvv
+            poetry check -vvv
     
             # Verify package version availability
             poetry run python -c "import requests; print('Package available' if requests.get('https://pypi.org/pypi/deepseek-client-python/json').status_code == 200 else 'Package does not exist')"
-          
+            
+            rm -rf dist/
+            
             poetry publish --build \
+              --no-interaction \
               --username __token__ \
               --password "${{ secrets.PYPI_API_TOKEN }}" \
               -vvv
