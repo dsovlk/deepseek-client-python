@@ -5,7 +5,7 @@ on:
   push:
     tags:
       - "v*"
-  workflow_dispatch:  # Allows manual triggering
+  # workflow_dispatch:  # Allows manual triggering
 
 jobs:
   build:
@@ -38,6 +38,5 @@ jobs:
 
       - name: Publish to PyPI
         env:
-          TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: poetry publish -vv --build --username $TWINE_USERNAME --password $TWINE_PASSWORD
+        run: poetry publish -vv --build --username __token__ --password $TWINE_PASSWORD
