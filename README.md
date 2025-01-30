@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI Version](https://img.shields.io/pypi/v/deepseek-client-python)](https://pypi.org/project/deepseek-client-python/)
-[![Python Versions](https://img.shields.io/pypi/pyversions/deepseek-client-python)](https://pypi.org/project/deepseek-client-python/)
+[![Publish Python Package](https://github.com/dsovlk/deepseek-client-python/actions/workflows/publish.yml/badge.svg)](https://github.com/dsovlk/deepseek-client-python/actions/workflows/publish.yml)
 
 Python client for DeepSeek based on requests
 
