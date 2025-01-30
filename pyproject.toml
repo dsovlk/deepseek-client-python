@@ -10,6 +10,10 @@ python = "^3.10"
 [tool.poetry.dev-dependencies]
 pytest = "^6.0"  # Add pytest as a development dependency
 
+[tool.poetry.packages]
+# If your Python module is directly in the root of the repository:
+packages = [{ include = "deepseek_client" }]
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
