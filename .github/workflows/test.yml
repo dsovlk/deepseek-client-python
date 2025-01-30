@@ -20,14 +20,15 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pytest
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install dependencies with Poetry
+        run: poetry install   
 
       - name: Set PYTHONPATH for tests
         run: |
           echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
       - name: Run tests
-        run: pytest
+        run: poetry run pytest  
