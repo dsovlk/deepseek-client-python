@@ -20,28 +20,24 @@ jobs:
         with:
           python-version: "3.10"  # Or use "3.x" to allow for minor version updates
 
-      - name: Install dependencies
-        run: | 
-          pip install -r requirements.txt
-          pip install pytest
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install dependencies with Poetry
+        run: poetry install   
 
       - name: Set PYTHONPATH for tests
         run: |
           echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
 
-      - name: Install build tools
-        run: |
-          pip install --upgrade pip
-          pip install build twine
-
       - name: Run tests
         run: pytest
 
       - name: Build package
-        run: python -m build
+        run: poetry build
 
       - name: Publish to PyPI
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: twine upload dist/*
+        run: poetry publish --build --username ${{ secrets.PYPI_USERNAME }} --password ${{ secrets.PYPI_API_TOKEN }}
