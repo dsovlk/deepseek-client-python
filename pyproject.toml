@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "deepseek-client-python"
-version = "1.0.1"
+version = "1.0.2"
 description = "Un-Official Python client for interacting with DeepSeek's LLM API"
 authors = ["Dmitry Volkov <dsvolk@gmail.com>"]
 packages = [
