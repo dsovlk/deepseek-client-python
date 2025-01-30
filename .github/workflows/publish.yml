@@ -43,4 +43,4 @@ jobs:
            # Correct environment variable
         run: |
             echo "POETRY_PYPI_TOKEN_PYPI is set: ${POETRY_PYPI_TOKEN_PYPI:0:4}***"
-            poetry publish --build -vvv --debug
+            poetry publish --build -vvv
