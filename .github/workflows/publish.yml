@@ -39,4 +39,6 @@ jobs:
       - name: Publish to PyPI
         env:
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: poetry publish -vv --build --username __token__ --password $TWINE_PASSWORD
+        run: |
+          echo "TWINE_PASSWORD is set: ${TWINE_PASSWORD:0:4}***"
+          poetry publish --build --username __token__ --password ${TWINE_PASSWORD} -vvv
