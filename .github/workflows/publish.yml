@@ -36,11 +36,8 @@ jobs:
       - name: Build package
         run: poetry build
 
-      - name: Check Environment Variables
-        run: printenv
-
       - name: Publish to PyPI
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: poetry publish --build --verbose
+        run: poetry publish -vv --build --username $TWINE_USERNAME --password $TWINE_PASSWORD
