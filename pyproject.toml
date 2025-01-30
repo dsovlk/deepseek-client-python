@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "deepseek-client-python"
+version = "1.0.0"
+description = "Un-Official Python client for interacting with DeepSeek's LLM API"
+authors = ["Dmitry Volkov dsvolk@gmail.com"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
